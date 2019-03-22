@@ -7,6 +7,6 @@
     <Button android:id="@+id/myButton" 
             android:layout_width="match_parent" 
             android:layout_height="wrap_content" 
-            android:text="@string/hello" />
+            android:text="Load Movies" />
     
 </LinearLayout>
