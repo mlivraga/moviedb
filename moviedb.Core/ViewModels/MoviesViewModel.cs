@@ -3,48 +3,38 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Threading.Tasks;
-using System.Windows.Input;
 using moviedb.Core.Helpers;
 using moviedb.Core.Model;
 using Newtonsoft.Json;
+
 
 namespace moviedb.Core.ViewModels
 {
     public class MoviesViewModel : ViewModelBase
     {
-        private ObservableCollection<MyMovie> movies = new ObservableCollection<MyMovie>();
-        public ObservableCollection<MyMovie> Movies
+        private ObservableCollection<MyMovie> mymovies = new ObservableCollection<MyMovie>();
+        public ObservableCollection<MyMovie> myMovies
         {
-            get { return movies; }
-            set { movies = value; OnPropertyChanged("movies"); }
+            get { return mymovies; }
+            set { mymovies = value; OnPropertyChanged("movies"); }
         }
 
-        //private MyMovie selectedPlanet;
-        //public MyMovie SelectedPlanet
-        //{
-        //    get { return selectedPlanet; }
-        //    set
-        //    {
-        //        selectedPlanet = value;
-        //        OnPropertyChanged("selectedMovie");
-        //    }
-        //}
 
-        //private ICommand loadMoviesCommand;
-        //public ICommand LoadMoviesCommand
-        //{
-        //    get
-        //    {
-        //        return LoadMoviesCommand ?? (loadMoviesCommand = new Command(async () => await LoadMovies()));
-        //    }
-        //}
-
+        /// <summary>
+        /// Loads the movies for remote service.
+        /// </summary>
+        /// <returns>Download new popular movies on mymovies list.</returns>
         public async Task LoadMovies()
         {
-            Console.WriteLine("LoadMovies - START");
+            Console.WriteLine("LoadMovies, start");
 
-            var url = Constants.BASE_REST_URL + Constants.POPULAR_PATH + "?api_key=" + Keys.API_KEY + "&language=en-US&page=1";
-            Console.WriteLine("url {0}", url);
+            var url = Constants.BASE_REST_URL 
+                        + Constants.POPULAR_PATH 
+                            + Constants.QUERY_STRING_API 
+                                + Keys.API_KEY 
+                                    + Constants.QUERY_STRIN_LANGUAGE;
+
+            Console.WriteLine("LoadMovies, url {0}", url);
 
             using (var client = new HttpClient())
             {
@@ -52,24 +42,19 @@ namespace moviedb.Core.ViewModels
                 ApiMovieResponse response = JsonConvert.DeserializeObject<ApiMovieResponse>(content);
 
                 List<MyMovie> newMovies = response.results;
-                Console.WriteLine("movies tot: {0}", newMovies.Count);
+                Console.WriteLine("LoadMovies, response #movies: {0}", newMovies.Count);
 
-                Movies.Clear();
+                myMovies.Clear();
 
                 foreach(MyMovie current in newMovies)
                 {
-                    Movies.Add(current);
-                    Console.WriteLine(current.title);
+                    myMovies.Add(current);
                 }
             }
 
-            Console.WriteLine("LoadMovies - END");
+            Console.WriteLine("LoadMovies, end");
         }
 
-
-        // TODO Command to load posters
-
-        // TODO Method that download posters
 
     }
 }
