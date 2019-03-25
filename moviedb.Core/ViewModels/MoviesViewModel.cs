@@ -19,7 +19,6 @@ namespace moviedb.Core.ViewModels
             set { mymovies = value; OnPropertyChanged("movies"); }
         }
 
-
         /// <summary>
         /// Loads the movies for remote service.
         /// </summary>
