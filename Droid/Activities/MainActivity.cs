@@ -3,7 +3,6 @@ using Android.OS;
 using Android.Util;
 using Android.Support.V7.Widget;
 using moviedb.Droid.Helpers;
-using Android.Widget;
 
 namespace moviedb.Droid.Activities
 {

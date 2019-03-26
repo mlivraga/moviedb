@@ -1,18 +1,10 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
+﻿using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
 using moviedb.Core.Helpers;
 using moviedb.Core.Model;
-using moviedb.Core.ViewModels;
+
 
 namespace moviedb.Droid.Activities
 {
@@ -41,8 +33,11 @@ namespace moviedb.Droid.Activities
             MyMovie currentMovie = MyApp.myMoviesViewModel.GetMovie(movieId);
 
             tvTitle.Text = currentMovie.title;
+            tvReleseDate.Text = currentMovie.release_date;
+            tvOriginalLang.Text = currentMovie.original_language;
+            tvDescription.Text = currentMovie.overview;
 
-
+            Toast.MakeText(this, currentMovie.poster_path, ToastLength.Short).Show();
         }
     }
 }

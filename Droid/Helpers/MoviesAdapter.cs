@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using Android.App;
 using Android.Content;
 using Android.Support.V7.Widget;
+using Android.Util;
 using Android.Views;
 using Android.Widget;
 using moviedb.Core.Helpers;
@@ -34,7 +33,7 @@ namespace moviedb.Droid.Helpers
 
             mHolder.ItemView.Click += (sender, e) =>
             {
-                Toast.MakeText(activity, "Item clicked, at position " + position, ToastLength.Short).Show();
+                Log.Debug(MyApp.TAG, "Item clicked, at position " + position);
 
                 Intent intent = new Intent(activity, typeof(DetailsActivity));
                 intent.SetFlags(ActivityFlags.NewTask);
