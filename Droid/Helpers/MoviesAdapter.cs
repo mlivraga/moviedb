@@ -26,8 +26,13 @@ namespace moviedb.Droid.Helpers
         {
             var item = dataset[position];
 
-            var currentHolder = holder as MyAdapterViewHolder;
-            currentHolder.Title.Text = item.title;
+            var mHolder = holder as MyAdapterViewHolder;
+            mHolder.Title.Text = item.title;
+
+            mHolder.ItemView.Click += (sender, e) =>
+            {
+                Toast.MakeText(activity, "Item clicked, at position " + position, ToastLength.Short).Show();
+            };
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)

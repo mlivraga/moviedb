@@ -5,6 +5,7 @@ using Android.Util;
 using Android.Support.V7.Widget;
 using moviedb.Droid.Helpers;
 using System.Threading.Tasks;
+using Android.Widget;
 
 namespace moviedb.Droid.Activities
 {
