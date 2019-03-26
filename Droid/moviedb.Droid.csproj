@@ -132,8 +132,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Activities\BaseActivity.cs" />
-    <Compile Include="myApp.cs" />
+    <Compile Include="MyApp.cs" />
     <Compile Include="Helpers\MoviesAdapter.cs" />
+    <Compile Include="Activities\DetailsActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -142,7 +143,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\Main.axml" />
+    <AndroidResource Include="Resources\layout\activity_main.axml" />
     <AndroidResource Include="Resources\values\Strings.xml" />
     <AndroidResource Include="Resources\mipmap-hdpi\ic_projector.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\ic_projector.png" />
@@ -150,6 +151,7 @@
     <AndroidResource Include="Resources\mipmap-xxhdpi\ic_projector.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_projector.png" />
     <AndroidResource Include="Resources\layout\simple_item.axml" />
+    <AndroidResource Include="Resources\layout\activity_details.axml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\moviedb.Core\moviedb.Core.csproj">

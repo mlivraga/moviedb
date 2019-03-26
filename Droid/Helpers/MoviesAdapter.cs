@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Android.App;
+using Android.Content;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
+using moviedb.Core.Helpers;
 using moviedb.Core.Model;
+using moviedb.Droid.Activities;
 
 namespace moviedb.Droid.Helpers
 {
@@ -32,6 +35,11 @@ namespace moviedb.Droid.Helpers
             mHolder.ItemView.Click += (sender, e) =>
             {
                 Toast.MakeText(activity, "Item clicked, at position " + position, ToastLength.Short).Show();
+
+                Intent intent = new Intent(activity, typeof(DetailsActivity));
+                intent.SetFlags(ActivityFlags.NewTask);
+                intent.PutExtra(Constants.EXTRA_MOVIE_DATA, item.id);
+                activity.StartActivity(intent);
             };
         }
 

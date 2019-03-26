@@ -305,20 +305,20 @@ namespace moviedb.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f06001f
-			public const int action_container = 2131099679;
+			// aapt resource value: 0x7f060024
+			public const int action_container = 2131099684;
 			
-			// aapt resource value: 0x7f06002b
-			public const int action_divider = 2131099691;
+			// aapt resource value: 0x7f060030
+			public const int action_divider = 2131099696;
 			
-			// aapt resource value: 0x7f060020
-			public const int action_image = 2131099680;
+			// aapt resource value: 0x7f060025
+			public const int action_image = 2131099685;
 			
-			// aapt resource value: 0x7f060021
-			public const int action_text = 2131099681;
+			// aapt resource value: 0x7f060026
+			public const int action_text = 2131099686;
 			
-			// aapt resource value: 0x7f06002c
-			public const int actions = 2131099692;
+			// aapt resource value: 0x7f060031
+			public const int actions = 2131099697;
 			
 			// aapt resource value: 0x7f060018
 			public const int all = 2131099672;
@@ -341,8 +341,8 @@ namespace moviedb.Droid
 			// aapt resource value: 0x7f06000c
 			public const int center_vertical = 2131099660;
 			
-			// aapt resource value: 0x7f06002a
-			public const int chronometer = 2131099690;
+			// aapt resource value: 0x7f06002f
+			public const int chronometer = 2131099695;
 			
 			// aapt resource value: 0x7f06000d
 			public const int clip_horizontal = 2131099661;
@@ -365,20 +365,23 @@ namespace moviedb.Droid
 			// aapt resource value: 0x7f06001b
 			public const int forever = 2131099675;
 			
-			// aapt resource value: 0x7f060023
-			public const int icon = 2131099683;
+			// aapt resource value: 0x7f060028
+			public const int icon = 2131099688;
 			
-			// aapt resource value: 0x7f06002d
-			public const int icon_group = 2131099693;
+			// aapt resource value: 0x7f060032
+			public const int icon_group = 2131099698;
 			
-			// aapt resource value: 0x7f060026
-			public const int info = 2131099686;
+			// aapt resource value: 0x7f06002b
+			public const int info = 2131099691;
 			
 			// aapt resource value: 0x7f06001c
 			public const int italic = 2131099676;
 			
 			// aapt resource value: 0x7f060000
 			public const int item_touch_helper_previous_elevation = 2131099648;
+			
+			// aapt resource value: 0x7f06001e
+			public const int iv_poster = 2131099678;
 			
 			// aapt resource value: 0x7f060013
 			public const int left = 2131099667;
@@ -395,26 +398,26 @@ namespace moviedb.Droid
 			// aapt resource value: 0x7f06001d
 			public const int normal = 2131099677;
 			
-			// aapt resource value: 0x7f060028
-			public const int notification_background = 2131099688;
+			// aapt resource value: 0x7f06002d
+			public const int notification_background = 2131099693;
 			
-			// aapt resource value: 0x7f060024
-			public const int notification_main_column = 2131099684;
+			// aapt resource value: 0x7f060029
+			public const int notification_main_column = 2131099689;
 			
-			// aapt resource value: 0x7f060022
-			public const int notification_main_column_container = 2131099682;
+			// aapt resource value: 0x7f060027
+			public const int notification_main_column_container = 2131099687;
 			
-			// aapt resource value: 0x7f06001e
-			public const int recyclerView = 2131099678;
+			// aapt resource value: 0x7f060023
+			public const int recyclerView = 2131099683;
 			
 			// aapt resource value: 0x7f060014
 			public const int right = 2131099668;
 			
-			// aapt resource value: 0x7f060027
-			public const int right_icon = 2131099687;
+			// aapt resource value: 0x7f06002c
+			public const int right_icon = 2131099692;
 			
-			// aapt resource value: 0x7f060025
-			public const int right_side = 2131099685;
+			// aapt resource value: 0x7f06002a
+			public const int right_side = 2131099690;
 			
 			// aapt resource value: 0x7f060015
 			public const int start = 2131099669;
@@ -434,8 +437,8 @@ namespace moviedb.Droid
 			// aapt resource value: 0x7f060007
 			public const int text2 = 2131099655;
 			
-			// aapt resource value: 0x7f060029
-			public const int time = 2131099689;
+			// aapt resource value: 0x7f06002e
+			public const int time = 2131099694;
 			
 			// aapt resource value: 0x7f060008
 			public const int title = 2131099656;
@@ -443,8 +446,20 @@ namespace moviedb.Droid
 			// aapt resource value: 0x7f060016
 			public const int top = 2131099670;
 			
-			// aapt resource value: 0x7f06002e
-			public const int tv_first = 2131099694;
+			// aapt resource value: 0x7f060022
+			public const int tv_description = 2131099682;
+			
+			// aapt resource value: 0x7f060033
+			public const int tv_first = 2131099699;
+			
+			// aapt resource value: 0x7f060021
+			public const int tv_original_language = 2131099681;
+			
+			// aapt resource value: 0x7f060020
+			public const int tv_release_date = 2131099680;
+			
+			// aapt resource value: 0x7f06001f
+			public const int tv_title = 2131099679;
 			
 			static Id()
 			{
@@ -476,28 +491,31 @@ namespace moviedb.Droid
 		{
 			
 			// aapt resource value: 0x7f040000
-			public const int Main = 2130968576;
+			public const int activity_details = 2130968576;
 			
 			// aapt resource value: 0x7f040001
-			public const int notification_action = 2130968577;
+			public const int activity_main = 2130968577;
 			
 			// aapt resource value: 0x7f040002
-			public const int notification_action_tombstone = 2130968578;
+			public const int notification_action = 2130968578;
 			
 			// aapt resource value: 0x7f040003
-			public const int notification_template_custom_big = 2130968579;
+			public const int notification_action_tombstone = 2130968579;
 			
 			// aapt resource value: 0x7f040004
-			public const int notification_template_icon_group = 2130968580;
+			public const int notification_template_custom_big = 2130968580;
 			
 			// aapt resource value: 0x7f040005
-			public const int notification_template_part_chronometer = 2130968581;
+			public const int notification_template_icon_group = 2130968581;
 			
 			// aapt resource value: 0x7f040006
-			public const int notification_template_part_time = 2130968582;
+			public const int notification_template_part_chronometer = 2130968582;
 			
 			// aapt resource value: 0x7f040007
-			public const int simple_item = 2130968583;
+			public const int notification_template_part_time = 2130968583;
+			
+			// aapt resource value: 0x7f040008
+			public const int simple_item = 2130968584;
 			
 			static Layout()
 			{

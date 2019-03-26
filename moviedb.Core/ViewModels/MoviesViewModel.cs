@@ -54,6 +54,26 @@ namespace moviedb.Core.ViewModels
             Console.WriteLine("LoadMovies, end");
         }
 
+        /// <summary>
+        /// Gets the specified movie.
+        /// </summary>
+        /// <returns>The movie.</returns>
+        /// <param name="searchID">Search identifier.</param>
+        public MyMovie GetMovie(int searchID)
+        {
+            MyMovie wanted = null;
+
+            foreach(MyMovie m in myMovies)
+            {
+                if (m.id.Equals(searchID))
+                {
+                    wanted = m;
+                }
+            }
+
+            return wanted;
+        }
+
 
     }
 }

@@ -1,10 +1,8 @@
 ﻿using Android.App;
 using Android.OS;
-using moviedb.Core.ViewModels;
 using Android.Util;
 using Android.Support.V7.Widget;
 using moviedb.Droid.Helpers;
-using System.Threading.Tasks;
 using Android.Widget;
 
 namespace moviedb.Droid.Activities
@@ -16,27 +14,22 @@ namespace moviedb.Droid.Activities
         RecyclerView.LayoutManager mLayoutManager;
         MoviesAdapter mAdapter;
 
-        private MoviesViewModel myMoviesViewModel;
-
-
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.Main);
+            SetContentView(Resource.Layout.activity_main);
 
-            Log.Debug(myApp.TAG, "OnCreate");
+            Log.Debug(MyApp.TAG, "OnCreate");
 
-            myMoviesViewModel = new MoviesViewModel();
-
-            mAdapter = new MoviesAdapter(this, myMoviesViewModel.myMovies);
+            mAdapter = new MoviesAdapter(this, MyApp.myMoviesViewModel.myMovies);
             mLayoutManager = new LinearLayoutManager(this);
             mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
             mRecyclerView.SetAdapter(mAdapter);
             mRecyclerView.SetLayoutManager(mLayoutManager);
 
-            myMoviesViewModel.myMovies.CollectionChanged += (sender, e) =>
+            MyApp.myMoviesViewModel.myMovies.CollectionChanged += (sender, e) =>
             {
-                Log.Debug(myApp.TAG, "update data on adapter");
+                Log.Debug(MyApp.TAG, "update data on adapter");
 
                 mAdapter.NotifyDataSetChanged();
             };
@@ -47,11 +40,10 @@ namespace moviedb.Droid.Activities
         {
             base.OnResume();
 
-            Log.Debug(myApp.TAG, "OnResume");
+            Log.Debug(MyApp.TAG, "OnResume");
 
-            await myMoviesViewModel.LoadMovies();
+            await MyApp.myMoviesViewModel.LoadMovies();
         }
-
 
     }
 }
