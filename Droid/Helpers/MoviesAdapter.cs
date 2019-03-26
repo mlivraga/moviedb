@@ -12,7 +12,7 @@ namespace moviedb.Droid.Helpers
     public class MoviesAdapter : RecyclerView.Adapter
     {
         ObservableCollection<MyMovie> dataset;
-        Activity activity;
+        readonly Activity activity;
 
         public MoviesAdapter(Activity activity, ObservableCollection<MyMovie> myMovies)
         {
@@ -36,21 +36,6 @@ namespace moviedb.Droid.Helpers
             var itemView = LayoutInflater.From(parent.Context).Inflate(id, parent, false);
 
             return new MyAdapterViewHolder(itemView);
-        }
-
-
-        public void Update()
-        {
-            //dataset.Clear();
-
-            //foreach(MyMovie m in data)
-            //{
-            //    dataset.Add(m);
-            //}
-
-            Console.WriteLine("update data on adapter");
-
-            NotifyDataSetChanged();
         }
 
     }

@@ -42,20 +42,11 @@ namespace moviedb.Droid.Activities
 
         }
 
-        protected override void OnResume() 
+        protected async override void OnResume() 
         {
             base.OnResume();
 
             Log.Debug(myApp.TAG, "OnResume");
-
-            RetriveData();
-
-        }
-
-
-        private async Task RetriveData()
-        {
-            Log.Debug(myApp.TAG, "RetriveData");
 
             await myMoviesViewModel.LoadMovies();
         }
