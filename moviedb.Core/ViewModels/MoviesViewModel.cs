@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using moviedb.Core.Helpers;
@@ -72,6 +74,38 @@ namespace moviedb.Core.ViewModels
             }
 
             return wanted;
+        }
+
+
+        const int _downloadImageTimeoutInSeconds = 15;
+        readonly HttpClient _httpClient = new HttpClient {
+            Timeout = TimeSpan.FromSeconds(_downloadImageTimeoutInSeconds)
+        };
+
+        public async Task<byte[]> DownloadImageAsync(string imageUrl)
+        {
+            Console.WriteLine("DownloadImageAsync {0}", imageUrl);
+
+            try
+            {
+                using (var httpResponse = await _httpClient.GetAsync(imageUrl))
+                {
+                    if(httpResponse.StatusCode == HttpStatusCode.OK)
+                    {
+                        return await httpResponse.Content.ReadAsByteArrayAsync();
+                    }
+                    else
+                    {
+                        // Url is Invalid
+                        return null;
+                    }
+                }
+            } catch(Exception e)
+            {
+                Console.WriteLine("Dowload Image exception " + e.Message);
+            }
+
+            return null;
         }
 
 
