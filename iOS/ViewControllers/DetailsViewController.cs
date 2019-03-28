@@ -1,6 +1,11 @@
 using Foundation;
+using moviedb.Core.Helpers;
 using moviedb.Core.Model;
+using moviedb.Core.ViewModels;
 using System;
+using System.Net.Mail;
+using System.Net.Sockets;
+using System.Threading.Tasks;
 using UIKit;
 
 namespace moviedb.iOS
@@ -8,6 +13,8 @@ namespace moviedb.iOS
     public partial class DetailsViewController : UIViewController
     {
         MyMovie currentMovie { get; set; }
+
+        MoviesViewModel moviesViewModel = new MoviesViewModel();
 
         public DetailsViewController (IntPtr handle) : base (handle)
         {
@@ -20,11 +27,28 @@ namespace moviedb.iOS
             ReleaseDateLabel.Text = currentMovie.release_date;
             LanguageLabel.Text = currentMovie.original_language;
             DescriptionLabel.Text = currentMovie.overview;
+
+            downloadImage();
+
         }
 
-        public void SetTask(MyMovie task)
+        public void SetTask(MyMovie movie)
         {
-            currentMovie = task;
+            currentMovie = movie;
         }
+
+
+        private async void downloadImage()
+        {
+            string uri = Constants.BASE_REST_IMG_URL + Constants.POSTER_PATH + currentMovie.poster_path;
+
+            byte[] downloadImage = await moviesViewModel.DownloadImageAsync(uri);
+
+            NSData data = NSData.FromArray(downloadImage);
+            UIImage uiimage = UIImage.LoadFromData(data);
+            PosterImage.Image = uiimage;
+
+        }
+
     }
 }
