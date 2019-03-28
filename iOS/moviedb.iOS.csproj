@@ -107,10 +107,6 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="ViewController.cs" />
-    <Compile Include="ViewController.designer.cs">
-      <DependentUpon>ViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Helpers\RootTableSource.cs" />
     <Compile Include="ViewControllers\DetailsViewController.cs" />
     <Compile Include="ViewControllers\DetailsViewController.designer.cs">

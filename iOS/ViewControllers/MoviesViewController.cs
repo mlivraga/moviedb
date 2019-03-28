@@ -15,18 +15,21 @@ namespace moviedb.iOS
         {
         }
 
-        public override void ViewDidLoad()
+        public async override void ViewDidLoad()
         {
             base.ViewDidLoad();
-        }
-
-        public async override void ViewWillAppear(bool animated)
-        {
-            base.ViewWillAppear(animated);
 
             await moviesViewModel.LoadMovies();
 
             TableView.Source = new RootTableSource(moviesViewModel.myMovies);
+
+            // fix for delay to see items
+            TableView.ReloadData();
+        }
+
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
         }
 
         public override void PrepareForSegue(UIStoryboardSegue segue, NSObject sender)
