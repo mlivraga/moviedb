@@ -15,7 +15,7 @@ namespace moviedb.Core.ViewModels
     public class MoviesViewModel : ViewModelBase
     {
         private ObservableCollection<MyMovie> mymovies = new ObservableCollection<MyMovie>();
-        public ObservableCollection<MyMovie> myMovies
+        public ObservableCollection<MyMovie> MyMovies
         {
             get { return mymovies; }
             set { mymovies = value; OnPropertyChanged("movies"); }
@@ -45,11 +45,11 @@ namespace moviedb.Core.ViewModels
                 List<MyMovie> newMovies = response.results;
                 Console.WriteLine("LoadMovies, response #movies: {0}", newMovies.Count);
 
-                myMovies.Clear();
+                MyMovies.Clear();
 
                 foreach(MyMovie current in newMovies)
                 {
-                    myMovies.Add(current);
+                    MyMovies.Add(current);
                 }
             }
 
@@ -65,7 +65,7 @@ namespace moviedb.Core.ViewModels
         {
             MyMovie wanted = null;
 
-            foreach(MyMovie m in myMovies)
+            foreach(MyMovie m in MyMovies)
             {
                 if (m.id.Equals(searchID))
                 {

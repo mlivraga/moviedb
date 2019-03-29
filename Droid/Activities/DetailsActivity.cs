@@ -14,7 +14,7 @@ using moviedb.Core.Model;
 namespace moviedb.Droid.Activities
 {
     [Activity(Label = "DetailsActivity")]
-    public class DetailsActivity : BaseActivity
+    public class DetailsActivity : Activity
     {
         TextView tvTitle;
         TextView tvReleseDate;

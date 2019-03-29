@@ -7,7 +7,7 @@ using moviedb.Droid.Helpers;
 namespace moviedb.Droid.Activities
 {
     [Activity(Label = "Moviedb", MainLauncher = true, Icon = "@mipmap/ic_projector")]
-    public class MainActivity : BaseActivity
+    public class MainActivity : Activity
     {
         private RecyclerView mRecyclerView;
         RecyclerView.LayoutManager mLayoutManager;
@@ -20,13 +20,13 @@ namespace moviedb.Droid.Activities
 
             Log.Debug(MyApp.TAG, "OnCreate");
 
-            mAdapter = new MoviesAdapter(this, MyApp.myMoviesViewModel.myMovies);
+            mAdapter = new MoviesAdapter(this, MyApp.myMoviesViewModel.MyMovies);
             mLayoutManager = new LinearLayoutManager(this);
             mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
             mRecyclerView.SetAdapter(mAdapter);
             mRecyclerView.SetLayoutManager(mLayoutManager);
 
-            MyApp.myMoviesViewModel.myMovies.CollectionChanged += (sender, e) =>
+            MyApp.myMoviesViewModel.MyMovies.CollectionChanged += (sender, e) =>
             {
                 Log.Debug(MyApp.TAG, "update data on adapter");
 

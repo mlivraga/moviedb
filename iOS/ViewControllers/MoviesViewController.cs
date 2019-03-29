@@ -21,7 +21,7 @@ namespace moviedb.iOS
 
             await moviesViewModel.LoadMovies();
 
-            TableView.Source = new RootTableSource(moviesViewModel.myMovies);
+            TableView.Source = new RootTableSource(moviesViewModel.MyMovies);
 
             // fix for delay to see items
             TableView.ReloadData();
@@ -43,7 +43,7 @@ namespace moviedb.iOS
                     var source = TableView.Source as RootTableSource;
                     var rowPath = TableView.IndexPathForSelectedRow;
                     MyMovie item = source.GetItem(rowPath.Row);
-                    navctlr.SetTask(item); // to be defined on the TaskDetailViewController
+                    navctlr.SetTask(item); // defined on the DetailsViewController
                 }
             }
         }

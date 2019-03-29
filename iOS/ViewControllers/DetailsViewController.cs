@@ -12,7 +12,7 @@ namespace moviedb.iOS
 {
     public partial class DetailsViewController : UIViewController
     {
-        MyMovie currentMovie { get; set; }
+        MyMovie CurrentMovie { get; set; }
 
         MoviesViewModel moviesViewModel = new MoviesViewModel();
 
@@ -23,24 +23,24 @@ namespace moviedb.iOS
         public override void ViewWillAppear(bool animated)
         {
             base.ViewWillAppear(animated);
-            TitleLabel.Text = currentMovie.title;
-            ReleaseDateLabel.Text = currentMovie.release_date;
-            LanguageLabel.Text = currentMovie.original_language;
-            DescriptionLabel.Text = currentMovie.overview;
+            TitleLabel.Text = CurrentMovie.title;
+            ReleaseDateLabel.Text = CurrentMovie.release_date;
+            LanguageLabel.Text = CurrentMovie.original_language;
+            DescriptionLabel.Text = CurrentMovie.overview;
 
-            downloadImage();
+            DownloadImage();
 
         }
 
         public void SetTask(MyMovie movie)
         {
-            currentMovie = movie;
+            CurrentMovie = movie;
         }
 
 
-        private async void downloadImage()
+        private async void DownloadImage()
         {
-            string uri = Constants.BASE_REST_IMG_URL + Constants.POSTER_PATH + currentMovie.poster_path;
+            string uri = Constants.BASE_REST_IMG_URL + Constants.POSTER_PATH + CurrentMovie.poster_path;
 
             byte[] downloadImage = await moviesViewModel.DownloadImageAsync(uri);
 
